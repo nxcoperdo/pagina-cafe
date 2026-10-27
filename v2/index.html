@@ -109,8 +109,7 @@
 
       .caja { @apply min-w-0 rounded-xl border border-secundario bg-blanco p-5 text-secundario sm:p-6 dark:border-texto-oscuro dark:bg-superficie-oscuro dark:text-texto-oscuro; }
 
-      .tarjeta { @apply flex min-w-0 flex-col rounded-xl border border-secundario bg-blanco p-5 text-secundario sm:p-6 dark:border-texto-oscuro dark:bg-superficie-oscuro dark:text-texto-oscuro; }
-      .tarjeta p { @apply mb-3 text-base sm:text-[1.0625rem]; }
+      .tarjeta { @apply flex min-w-0 flex-col rounded-xl border border-secundario bg-blanco p-5 text-secundario sm:p-6 dark:border-texto-oscuro dark:bg-superficie-oscuro dark:text-texto-oscuro transition duration-300 hover:-translate-y-1 hover:shadow-lg motion-reduce:transition-none motion-reduce:hover:translate-y-0; }      .tarjeta p { @apply mb-3 text-base sm:text-[1.0625rem]; }
       .tarjeta-precio { @apply mt-auto mb-0 font-semibold text-acento dark:text-acento-oscuro; }
       /* Tarjeta destacada: fondo secundario con texto blanco (nunca acento sobre secundario) */
       .tarjeta-destacada { @apply border-2 bg-secundario text-blanco dark:border-acento-oscuro dark:bg-superficie-oscuro dark:text-texto-oscuro; }
@@ -120,7 +119,7 @@
       .insignia { @apply inline-flex items-center gap-2 rounded-full border-2 bg-blanco px-3.5 py-1 font-semibold dark:bg-dominante-oscuro; }
 
       .faq-item { @apply rounded-xl border border-secundario bg-blanco text-secundario dark:border-texto-oscuro dark:bg-superficie-oscuro dark:text-texto-oscuro; }
-      .faq-boton { @apply group flex min-h-13 w-full cursor-pointer items-center justify-between gap-4 rounded-xl px-5 py-3 text-left text-base font-semibold sm:text-lg; }
+      .faq-boton { @apply flex min-h-13 w-full cursor-pointer items-center justify-between gap-4 rounded-xl px-5 py-3 text-left text-base font-semibold sm:text-lg; }
       .faq-boton svg { @apply size-6 shrink-0 fill-none stroke-acento transition-transform duration-300 group-aria-expanded:rotate-180 motion-reduce:transition-none dark:stroke-acento-oscuro; }
       .faq-panel { @apply invisible grid grid-rows-[0fr] transition-[grid-template-rows,visibility] duration-300 ease-out motion-reduce:transition-none data-[abierto]:visible data-[abierto]:grid-rows-[1fr]; }
 
@@ -159,8 +158,9 @@
       <!-- Panel de navegación: oculto en celular hasta abrirlo (data-abierto); siempre visible desde md -->
       <nav id="panel-nav" aria-label="Principal" class="order-3 hidden w-full border-t border-blanco data-[abierto]:block md:order-2 md:block md:w-auto md:border-0 dark:border-texto-oscuro">
         <ul class="flex flex-col py-1 md:flex-row md:gap-4 md:py-0 lg:gap-6">
-          <li><a href="#menu" class="nav-enlace">Menú</a></li>
+            <li><a href="#menu" class="nav-enlace">Menú</a></li>
           <li><a href="#historia" class="nav-enlace">Historia</a></li>
+          <li><a href="#valores" class="nav-enlace">Valores</a></li>
           <li><a href="#visitanos" class="nav-enlace">Visítanos</a></li>
           <li><a href="#preguntas" class="nav-enlace">Preguntas</a></li>
           <li><a href="#contacto" class="nav-enlace">Contacto</a></li>
@@ -292,7 +292,26 @@
         </svg>
       </div>
     </section>
-
+    <!-- NUEVA SECCIÓN: valores (cambio manual 2) -->
+    <section id="valores" class="seccion" aria-labelledby="valores-titulo">
+      <div class="contenedor">
+        <h2 id="valores-titulo" class="mb-8 text-3xl font-bold sm:text-4xl">Nuestros valores</h2>
+        <ul class="grid grid-cols-1 gap-4 sm:gap-5 md:grid-cols-3">
+          <li class="tarjeta">
+            <h3 class="mb-2 text-xl font-semibold">Café de origen</h3>
+            <p>Trabajamos con granos cultivados en el Huila y pagamos un precio justo a quienes los siembran.</p>
+          </li>
+          <li class="tarjeta">
+            <h3 class="mb-2 text-xl font-semibold">Hecho al momento</h3>
+            <p>Cada bebida se prepara cuando la pides, para que llegue fresca a tu mesa.</p>
+          </li>
+          <li class="tarjeta">
+            <h3 class="mb-2 text-xl font-semibold">Calidez huilense</h3>
+            <p>Aquí te recibimos como en casa: sin afán y con buena conversación.</p>
+          </li>
+        </ul>
+      </div>
+    </section>
     <!-- 5. CÓMO LLEGAR Y HORARIOS -->
     <section id="visitanos" class="seccion" aria-labelledby="visitanos-titulo">
       <div class="contenedor">
@@ -354,7 +373,7 @@
 
           <div class="faq-item">
             <h3>
-              <button type="button" class="faq-boton" id="faq-boton-1" aria-expanded="false" aria-controls="faq-panel-1">
+              <button type="button" class="faq-boton group" id="faq-boton-1" aria-expanded="false" aria-controls="faq-panel-1">
                 <span>¿Qué métodos de pago aceptan?</span>
                 <svg viewBox="0 0 24 24" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6 9l6 6 6-6"/></svg>
               </button>
@@ -366,7 +385,7 @@
 
           <div class="faq-item">
             <h3>
-              <button type="button" class="faq-boton" id="faq-boton-2" aria-expanded="false" aria-controls="faq-panel-2">
+              <button type="button" class="faq-boton group" id="faq-boton-2" aria-expanded="false" aria-controls="faq-panel-2">
                 <span>¿Necesito reservar mesa?</span>
                 <svg viewBox="0 0 24 24" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6 9l6 6 6-6"/></svg>
               </button>
@@ -378,7 +397,7 @@
 
           <div class="faq-item">
             <h3>
-              <button type="button" class="faq-boton" id="faq-boton-3" aria-expanded="false" aria-controls="faq-panel-3">
+              <button type="button" class="faq-boton group" id="faq-boton-3" aria-expanded="false" aria-controls="faq-panel-3">
                 <span>¿Tienen opciones sin gluten o veganas?</span>
                 <svg viewBox="0 0 24 24" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6 9l6 6 6-6"/></svg>
               </button>
@@ -390,7 +409,7 @@
 
           <div class="faq-item">
             <h3>
-              <button type="button" class="faq-boton" id="faq-boton-4" aria-expanded="false" aria-controls="faq-panel-4">
+              <button type="button" class="faq-boton group" id="faq-boton-4" aria-expanded="false" aria-controls="faq-panel-4">
                 <span>¿Tienen wifi?</span>
                 <svg viewBox="0 0 24 24" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6 9l6 6 6-6"/></svg>
               </button>
@@ -402,7 +421,7 @@
 
           <div class="faq-item">
             <h3>
-              <button type="button" class="faq-boton" id="faq-boton-5" aria-expanded="false" aria-controls="faq-panel-5">
+              <button type="button" class="faq-boton group" id="faq-boton-5" aria-expanded="false" aria-controls="faq-panel-5">
                 <span>¿Venden café en grano para llevar?</span>
                 <svg viewBox="0 0 24 24" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6 9l6 6 6-6"/></svg>
               </button>
@@ -414,7 +433,7 @@
 
           <div class="faq-item">
             <h3>
-              <button type="button" class="faq-boton" id="faq-boton-6" aria-expanded="false" aria-controls="faq-panel-6">
+              <button type="button" class="faq-boton group" id="faq-boton-6" aria-expanded="false" aria-controls="faq-panel-6">
                 <span>¿Aceptan mascotas?</span>
                 <svg viewBox="0 0 24 24" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6 9l6 6 6-6"/></svg>
               </button>

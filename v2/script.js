@@ -161,6 +161,9 @@ function mensajeDeError(campo) {
   if (campo.type === "email" && !EMAIL_VALIDO.test(valor)) {
     return "Escribe un correo válido, por ejemplo nombre@correo.com.";
   }
+if (campo.id === "mensaje" && valor.length < 10) {           
+    return "Cuéntanos un poco más, mínimo 10 caracteres.";    
+  }                                                            
   return "";
 }
 
