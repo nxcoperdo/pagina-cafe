@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<!--
+  AVISO: "Tierra Huilense" es una cafetería INVENTADA, creada solo como ejercicio de práctica de diseño web.
+  Todo el contenido (menú, precios, dirección, horarios, teléfono, historia) es FICTICIO.
+-->
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Tierra Huilense | Café de especialidad del Huila</title>
+  <meta name="description" content="Cafetería de especialidad del Huila: menú de café caliente, café frío y panadería, historia de la finca, horarios y cómo llegar.">
+
+  <!-- Marca la página como "con JavaScript" para que el acordeón solo se colapse si el JS funciona -->
+  <script>document.documentElement.classList.add('js');</script>
+
+  <!-- Fuentes: Fraunces (títulos) e Inter (texto), con display=swap para no bloquear el texto -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+
+  <!-- 1. CABECERA: logo en texto + navegación por anclas -->
+  <header class="cabecera sobre-oscuro">
+    <div class="contenedor cabecera__interior">
+      <a href="#inicio" class="logo">Tierra Huilense</a>
+      <nav aria-label="Principal">
+        <ul class="nav">
+          <li><a href="#menu">Menú</a></li>
+          <li><a href="#historia">Historia</a></li>
+          <li><a href="#visitanos">Cómo llegar</a></li>
+          <li><a href="#preguntas">Preguntas</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="inicio">
+
+    <!-- 2. HERO -->
+    <section class="hero" aria-labelledby="hero-titulo">
+      <div class="contenedor hero__interior">
+        <div class="hero__texto">
+          <h1 id="hero-titulo">El café del Huila, como se toma en casa</h1>
+          <p class="hero__frase">Café de especialidad de nuestras montañas, servido con la calidez de siempre. Pasa, siéntate y tómate tu tiempo.</p>
+          <a href="#menu" class="btn btn--primario">Ver el menú</a>
+        </div>
+        <!-- Marcador de posición (en lugar de una foto): taza de café dibujada con SVG -->
+        <svg class="hero__ilustracion" viewBox="0 0 320 280" role="img" aria-label="Ilustración de una taza de café humeante sobre un plato; es un marcador de posición para una foto del local">
+          <circle cx="160" cy="140" r="130" class="svg-blanco"/>
+          <ellipse cx="160" cy="226" rx="105" ry="16" class="svg-secundario"/>
+          <path d="M80 100h160v58a80 66 0 0 1-160 0z" class="svg-secundario"/>
+          <ellipse cx="160" cy="100" rx="80" ry="14" class="svg-acento"/>
+          <path d="M240 118h12a24 24 0 0 1 0 48h-20" class="svg-trazo-secundario"/>
+          <path d="M130 70c-12-14 12-22 0-38M160 70c-12-14 12-22 0-38M190 70c-12-14 12-22 0-38" class="svg-trazo-acento"/>
+        </svg>
+      </div>
+    </section>
+
+    <!-- 3. MENÚ: tarjetas por categoría -->
+    <section id="menu" class="seccion" aria-labelledby="menu-titulo">
+      <div class="contenedor">
+        <h2 id="menu-titulo">Nuestro menú</h2>
+        <p class="seccion__intro">Todo se prepara al momento con café de nuestra finca. Precios en pesos colombianos (COP).</p>
+
+        <div class="categoria">
+          <h3>Café caliente</h3>
+          <ul class="tarjetas">
+            <li class="tarjeta tarjeta--destacada">
+              <span class="tarjeta__etiqueta">Favorito de la casa</span>
+              <h4>Capuchino de la finca</h4>
+              <p>Espresso de grano huilense con leche cremosa y espuma de terciopelo.</p>
+              <p class="tarjeta__precio">$8.500 COP</p>
+            </li>
+            <li class="tarjeta">
+              <h4>Tinto huilense</h4>
+              <p>El de toda la vida: filtrado, aromático y sin afán.</p>
+              <p class="tarjeta__precio">$4.000 COP</p>
+            </li>
+            <li class="tarjeta">
+              <h4>Americano</h4>
+              <p>Espresso largo, limpio y suave, con notas a panela.</p>
+              <p class="tarjeta__precio">$5.500 COP</p>
+            </li>
+            <li class="tarjeta">
+              <h4>Latte de panela</h4>
+              <p>Café con leche endulzado con panela y un toque de canela.</p>
+              <p class="tarjeta__precio">$9.000 COP</p>
+            </li>
+          </ul>
+        </div>
+
+        <div class="categoria">
+          <h3>Café frío</h3>
+          <ul class="tarjetas">
+            <li class="tarjeta tarjeta--destacada">
+              <span class="tarjeta__etiqueta">Favorito de la casa</span>
+              <h4>Cold brew de la finca</h4>
+              <p>Infusionado en frío durante 16 horas. Dulce, fresco y con cuerpo.</p>
+              <p class="tarjeta__precio">$9.500 COP</p>
+            </li>
+            <li class="tarjeta">
+              <h4>Café tónico</h4>
+              <p>Espresso sobre agua tónica y hielo, con rodaja de naranja.</p>
+              <p class="tarjeta__precio">$10.000 COP</p>
+            </li>
+            <li class="tarjeta">
+              <h4>Frappé de café</h4>
+              <p>Café helado batido con leche y hielo, coronado con crema.</p>
+              <p class="tarjeta__precio">$11.000 COP</p>
+            </li>
+          </ul>
+        </div>
+
+        <div class="categoria">
+          <h3>Panadería</h3>
+          <ul class="tarjetas">
+            <li class="tarjeta tarjeta--destacada">
+              <span class="tarjeta__etiqueta">Favorito de la casa</span>
+              <h4>Rosquillas huilenses</h4>
+              <p>Crujientes, de maíz y queso, horneadas cada mañana.</p>
+              <p class="tarjeta__precio">$4.500 COP</p>
+            </li>
+            <li class="tarjeta">
+              <h4>Pan de bono</h4>
+              <p>Calientico, suave y con queso fresco.</p>
+              <p class="tarjeta__precio">$3.800 COP</p>
+            </li>
+            <li class="tarjeta">
+              <h4>Brownie de almendra</h4>
+              <p>Sin harina de trigo, con cacao de la región. Opción sin gluten.</p>
+              <p class="tarjeta__precio">$7.500 COP</p>
+            </li>
+            <li class="tarjeta">
+              <h4>Muffin de plátano y avena</h4>
+              <p>Hecho sin huevo ni lácteos. Opción vegana.</p>
+              <p class="tarjeta__precio">$6.500 COP</p>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. HISTORIA (fondo secundario: texto en blanco) -->
+    <section id="historia" class="seccion seccion--oscura sobre-oscuro" aria-labelledby="historia-titulo">
+      <div class="contenedor historia">
+        <div class="historia__texto">
+          <h2 id="historia-titulo">De la finca a tu taza</h2>
+          <p>Todo empezó en una finca familiar a las afueras de Neiva, donde el abuelo sembró los primeros cafetos entre plátanos y guamos. Hoy, tres generaciones después, seguimos cosechando a mano, grano a grano.</p>
+          <p>El Huila es uno de los departamentos cafeteros más importantes de Colombia, y su café es famoso por ser dulce, de acidez brillante y con notas frutales. En Tierra Huilense queremos que cada visitante pruebe ese sabor y conozca a la gente que lo cultiva.</p>
+        </div>
+        <!-- Marcador de posición (en lugar de una foto): lomas cafeteras dibujadas con SVG -->
+        <svg class="historia__ilustracion" viewBox="0 0 360 240" role="img" aria-label="Ilustración de lomas verdes con un sol y filas de cafetos; es un marcador de posición para una foto de la finca">
+          <circle cx="280" cy="64" r="28" class="svg-blanco"/>
+          <path d="M0 150c60-50 120-50 180-10s120 30 180-20v120H0z" class="svg-dominante"/>
+          <path d="M0 190c70-30 130-20 190 0s110 10 170-10v60H0z" class="svg-blanco"/>
+          <path d="M40 200l20-24 20 24M110 205l20-24 20 24M200 205l20-24 20 24M270 200l20-24 20 24" class="svg-trazo-secundario"/>
+        </svg>
+      </div>
+    </section>
+
+    <!-- 5. CÓMO LLEGAR Y HORARIOS -->
+    <section id="visitanos" class="seccion" aria-labelledby="visitanos-titulo">
+      <div class="contenedor">
+        <h2 id="visitanos-titulo">Cómo llegar y horarios</h2>
+        <div class="visita">
+          <div class="caja">
+            <h3>Dónde estamos</h3>
+            <address>
+              Calle 8 # 5-21, barrio Centro<br>
+              Neiva, Huila, Colombia<br>
+              <small>(dirección ficticia)</small>
+            </address>
+            <p>A dos cuadras del parque principal. Si vienes en bus desde la terminal, son unos 10 minutos en taxi.</p>
+            <p><a href="tel:+576085550142">(608) 555 0142</a> <small>(teléfono ficticio)</small></p>
+          </div>
+
+          <div class="caja">
+            <h3>Horarios</h3>
+            <!-- La insignia la calcula script.js con la hora de America/Bogota -->
+            <p id="estado-local" class="insignia insignia--neutra" role="status">Revisando horario…</p>
+            <p id="estado-detalle" class="estado-detalle"></p>
+            <table class="horarios">
+              <caption class="solo-lectores">Horario de atención</caption>
+              <tbody>
+                <tr><th scope="row">Lunes a viernes</th><td>7:00 a. m. – 7:00 p. m.</td></tr>
+                <tr><th scope="row">Sábados</th><td>8:00 a. m. – 8:00 p. m.</td></tr>
+                <tr><th scope="row">Domingos</th><td>8:00 a. m. – 4:00 p. m.</td></tr>
+              </tbody>
+            </table>
+            <p class="aviso"><strong>Horario especial en festivos:</strong> abrimos de 9:00 a. m. a 2:00 p. m.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. PREGUNTAS FRECUENTES (acordeón) -->
+    <section id="preguntas" class="seccion" aria-labelledby="preguntas-titulo">
+      <div class="contenedor contenedor--angosto">
+        <h2 id="preguntas-titulo">Preguntas frecuentes</h2>
+        <div class="faq">
+
+          <div class="faq__item">
+            <h3>
+              <button type="button" class="faq__boton" id="faq-boton-1" aria-expanded="false" aria-controls="faq-panel-1">
+                <span>¿Qué métodos de pago aceptan?</span>
+                <svg class="faq__icono" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6 9l6 6 6-6"/></svg>
+              </button>
+            </h3>
+            <div class="faq__panel" id="faq-panel-1" role="region" aria-labelledby="faq-boton-1">
+              <div class="faq__panel-interior"><p>Recibimos efectivo, tarjetas débito y crédito, y pagos por transferencia con código QR. Si vienes de otro país, también aceptamos las principales tarjetas internacionales.</p></div>
+            </div>
+          </div>
+
+          <div class="faq__item">
+            <h3>
+              <button type="button" class="faq__boton" id="faq-boton-2" aria-expanded="false" aria-controls="faq-panel-2">
+                <span>¿Necesito reservar mesa?</span>
+                <svg class="faq__icono" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6 9l6 6 6-6"/></svg>
+              </button>
+            </h3>
+            <div class="faq__panel" id="faq-panel-2" role="region" aria-labelledby="faq-boton-2">
+              <div class="faq__panel-interior"><p>Para grupos pequeños no hace falta: te atendemos por orden de llegada. Si vienes con más de 8 personas, llámanos con un día de anticipación y te guardamos un buen lugar.</p></div>
+            </div>
+          </div>
+
+          <div class="faq__item">
+            <h3>
+              <button type="button" class="faq__boton" id="faq-boton-3" aria-expanded="false" aria-controls="faq-panel-3">
+                <span>¿Tienen opciones sin gluten o veganas?</span>
+                <svg class="faq__icono" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6 9l6 6 6-6"/></svg>
+              </button>
+            </h3>
+            <div class="faq__panel" id="faq-panel-3" role="region" aria-labelledby="faq-boton-3">
+              <div class="faq__panel-interior"><p>Sí. El brownie de almendra no lleva harina de trigo y el muffin de plátano y avena es vegano. Además, puedes pedir tus bebidas con leche de avena sin costo extra. Si tienes alergias graves, cuéntanoslo al pedir.</p></div>
+            </div>
+          </div>
+
+          <div class="faq__item">
+            <h3>
+              <button type="button" class="faq__boton" id="faq-boton-4" aria-expanded="false" aria-controls="faq-panel-4">
+                <span>¿Tienen wifi?</span>
+                <svg class="faq__icono" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6 9l6 6 6-6"/></svg>
+              </button>
+            </h3>
+            <div class="faq__panel" id="faq-panel-4" role="region" aria-labelledby="faq-boton-4">
+              <div class="faq__panel-interior"><p>Sí, wifi gratis para clientes. Pide la clave en la barra y descansa de la señal del celular mientras tomas tu café.</p></div>
+            </div>
+          </div>
+
+          <div class="faq__item">
+            <h3>
+              <button type="button" class="faq__boton" id="faq-boton-5" aria-expanded="false" aria-controls="faq-panel-5">
+                <span>¿Venden café en grano para llevar?</span>
+                <svg class="faq__icono" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6 9l6 6 6-6"/></svg>
+              </button>
+            </h3>
+            <div class="faq__panel" id="faq-panel-5" role="region" aria-labelledby="faq-boton-5">
+              <div class="faq__panel-interior"><p>Claro. Vendemos bolsas de 250 g y 500 g de nuestro café de la finca, en grano o molido a tu gusto. Es un recuerdo perfecto del Huila.</p></div>
+            </div>
+          </div>
+
+          <div class="faq__item">
+            <h3>
+              <button type="button" class="faq__boton" id="faq-boton-6" aria-expanded="false" aria-controls="faq-panel-6">
+                <span>¿Aceptan mascotas?</span>
+                <svg class="faq__icono" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6 9l6 6 6-6"/></svg>
+              </button>
+            </h3>
+            <div class="faq__panel" id="faq-panel-6" role="region" aria-labelledby="faq-boton-6">
+              <div class="faq__panel-interior"><p>Sí, tu perrito es bienvenido en la terraza. Solo te pedimos que lo mantengas con correa.</p></div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- 7. PIE DE PÁGINA -->
+  <footer class="pie sobre-oscuro">
+    <div class="contenedor pie__interior">
+      <p class="pie__marca">Tierra Huilense</p>
+      <p>Calle 8 # 5-21, Neiva, Huila · <a href="tel:+576085550142">(608) 555 0142</a></p>
+      <p><small>Sitio de práctica de diseño: todo el contenido es ficticio.</small></p>
+      <p><small>© 2026 Tierra Huilense</small></p>
+    </div>
+  </footer>
+
+</body>
+</html>

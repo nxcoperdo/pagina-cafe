@@ -1,0 +1,305 @@
+/* =========================================================
+   Tierra Huilense — estilos
+   Regla de oro: los colores SOLO existen en :root y se usan por variable.
+   ========================================================= */
+
+:root {
+  /* Regla 60-30-10 */
+  --color-dominante: #F3F6EE;   /* 60%: fondos principales */
+  --color-secundario: #2F4F3A;  /* 30%: cabecera, pie, tarjetas destacadas, botones secundarios */
+  --color-acento: #B3402A;      /* 10%: botón principal, enlaces, detalles */
+
+  /* Semánticos */
+  --color-exito: #1E7A46;       /* "Abierto ahora" (solo sobre blanco) */
+  --color-error: #C62828;       /* "Cerrado" (solo sobre blanco) */
+  --color-advertencia-fondo: #F5B800;       /* fondo del aviso */
+  --color-advertencia-sobre-fondo: #1F1A00; /* texto sobre el fondo de advertencia */
+  --color-advertencia-texto: #8A5A00;       /* solo como texto sobre blanco */
+
+  /* Blanco: superficies de tarjetas y texto sobre fondo secundario */
+  --color-blanco: #FFFFFF;
+
+  /* Tipografía */
+  --fuente-titulos: "Fraunces", Georgia, serif;
+  --fuente-texto: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+
+  /* Espacios */
+  --radio: 0.75rem;
+  --ancho-max: 70rem;
+}
+
+/* ---------- Base ---------- */
+*, *::before, *::after { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+/* Desplazamiento suave solo si la persona no pidió menos movimiento */
+@media (prefers-reduced-motion: no-preference) {
+  html { scroll-behavior: smooth; }
+}
+
+body {
+  margin: 0;
+  font-family: var(--fuente-texto);
+  font-size: 1rem;          /* 16 px */
+  line-height: 1.6;
+  background: var(--color-dominante);
+  color: var(--color-secundario);
+}
+
+h1, h2, h3 {
+  font-family: var(--fuente-titulos);
+  line-height: 1.2;
+  margin: 0 0 0.75rem;
+}
+h1 { font-size: clamp(2.25rem, 7vw, 3.75rem); }
+h2 { font-size: clamp(1.75rem, 5vw, 2.5rem); }
+h3 { font-size: 1.5rem; }
+h4 { font-family: var(--fuente-texto); font-size: 1.125rem; font-weight: 600; margin: 0 0 0.25rem; }
+
+p { margin: 0 0 1rem; }
+small { font-size: 0.875rem; }
+
+svg { max-width: 100%; height: auto; display: block; }
+
+/* Enlaces de texto: acento sobre fondo claro, siempre subrayados */
+a { color: var(--color-acento); text-decoration: underline; text-underline-offset: 0.2em; }
+
+/* Foco visible: contorno en acento (y en blanco sobre fondos oscuros) */
+:focus-visible { outline: 3px solid var(--color-acento); outline-offset: 3px; }
+.sobre-oscuro :focus-visible { outline-color: var(--color-blanco); }
+
+/* Texto solo para lectores de pantalla */
+.solo-lectores {
+  position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0;
+  overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0;
+}
+
+/* ---------- Estructura ---------- */
+.contenedor {
+  width: 100%;
+  max-width: var(--ancho-max);
+  margin-inline: auto;
+  padding-inline: 1rem;
+}
+.contenedor--angosto { max-width: 48rem; }
+
+.seccion { padding-block: 3.5rem; }
+.seccion__intro { max-width: 40rem; margin-bottom: 2rem; }
+
+.seccion--oscura { background: var(--color-secundario); color: var(--color-blanco); }
+
+/* ---------- Botones ---------- */
+.btn {
+  display: inline-block;
+  min-height: 2.75rem;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  text-align: center;
+  text-decoration: none;
+}
+.btn:hover { text-decoration: underline; }
+.btn--primario { background: var(--color-acento); color: var(--color-blanco); }          /* 5.7:1 */
+.btn--secundario { background: var(--color-secundario); color: var(--color-blanco); }
+
+/* ---------- 1. Cabecera ---------- */
+.cabecera { background: var(--color-secundario); color: var(--color-blanco); }
+.cabecera__interior {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.25rem 1.5rem;
+  padding-block: 0.75rem;
+}
+.logo {
+  font-family: var(--fuente-titulos);
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--color-blanco);
+  text-decoration: none;
+}
+.nav { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 0 1rem; }
+.nav a {
+  display: inline-block;
+  padding: 0.6rem 0;        /* zona táctil de unos 44 px de alto */
+  color: var(--color-blanco);
+  text-decoration: none;
+  font-weight: 500;
+}
+.nav a:hover { text-decoration: underline; }
+
+/* ---------- 2. Hero ---------- */
+.hero { padding-block: 3rem; }
+.hero__interior { display: grid; gap: 2rem; align-items: center; }
+.hero__frase { font-size: 1.125rem; max-width: 34rem; margin-bottom: 1.5rem; }
+.hero__ilustracion { width: 100%; max-width: 20rem; margin-inline: auto; }
+
+/* Clases para pintar los SVG con las variables de color */
+.svg-blanco { fill: var(--color-blanco); }
+.svg-secundario { fill: var(--color-secundario); }
+.svg-acento { fill: var(--color-acento); }
+.svg-dominante { fill: var(--color-dominante); }
+.svg-trazo-secundario { fill: none; stroke: var(--color-secundario); stroke-width: 12; stroke-linecap: round; stroke-linejoin: round; }
+.svg-trazo-acento { fill: none; stroke: var(--color-acento); stroke-width: 8; stroke-linecap: round; }
+
+/* ---------- 3. Menú ---------- */
+.categoria { margin-top: 2.5rem; }
+.tarjetas {
+  list-style: none;
+  margin: 1rem 0 0;
+  padding: 0;
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
+}
+.tarjeta {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  padding: 1.25rem;
+  background: var(--color-blanco);
+  color: var(--color-secundario);
+  border: 1px solid var(--color-secundario);
+  border-radius: var(--radio);
+}
+.tarjeta p { margin-bottom: 0.75rem; }
+.tarjeta__precio { margin: auto 0 0; font-weight: 600; color: var(--color-acento); }   /* acento sobre blanco */
+
+/* Tarjeta destacada: fondo secundario, texto blanco (nunca acento sobre este fondo) */
+.tarjeta--destacada { background: var(--color-secundario); color: var(--color-blanco); }
+.tarjeta--destacada .tarjeta__precio { color: var(--color-blanco); }
+.tarjeta__etiqueta {
+  align-self: flex-start;
+  margin-bottom: 0.75rem;
+  padding: 0.125rem 0.625rem;
+  border: 1px solid var(--color-blanco);
+  border-radius: 999px;
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+/* ---------- 4. Historia ---------- */
+.historia { display: grid; gap: 2rem; align-items: center; }
+.historia__ilustracion { width: 100%; max-width: 24rem; margin-inline: auto; }
+
+/* ---------- 5. Cómo llegar y horarios ---------- */
+.visita { display: grid; gap: 1.5rem; margin-top: 1.5rem; }
+.caja {
+  min-width: 0;
+  padding: 1.5rem;
+  background: var(--color-blanco);
+  color: var(--color-secundario);
+  border: 1px solid var(--color-secundario);
+  border-radius: var(--radio);
+}
+address { font-style: normal; margin-bottom: 1rem; }
+
+/* Insignia Abierto / Cerrado: siempre sobre blanco (la caja es blanca) */
+.insignia {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 0 0 0.5rem;
+  padding: 0.25rem 0.875rem;
+  background: var(--color-blanco);
+  border: 2px solid currentColor;
+  border-radius: 999px;
+  font-weight: 600;
+}
+.insignia::before {
+  content: "";
+  width: 0.625rem;
+  height: 0.625rem;
+  border-radius: 50%;
+  background: currentColor;
+}
+.insignia--neutra { color: var(--color-secundario); }
+.insignia--abierto { color: var(--color-exito); }   /* 5.4:1 sobre blanco */
+.insignia--cerrado { color: var(--color-error); }   /* 5.6:1 sobre blanco */
+.estado-detalle { margin-bottom: 1rem; }
+
+.horarios { width: 100%; border-collapse: collapse; margin-bottom: 1rem; }
+.horarios th, .horarios td { padding: 0.5rem 0; text-align: left; border-bottom: 1px solid var(--color-secundario); }
+.horarios th { font-weight: 600; padding-right: 1rem; }
+
+/* Aviso de advertencia: texto #1F1A00 sobre #F5B800 (9.7:1) */
+.aviso {
+  margin: 0;
+  padding: 0.75rem 1rem;
+  background: var(--color-advertencia-fondo);
+  color: var(--color-advertencia-sobre-fondo);
+  border-radius: 0.5rem;
+}
+
+/* ---------- 6. Preguntas frecuentes (acordeón) ---------- */
+.faq { margin-top: 1.5rem; display: grid; gap: 0.75rem; }
+.faq__item { background: var(--color-blanco); border: 1px solid var(--color-secundario); border-radius: var(--radio); }
+.faq__item h3 { margin: 0; font-size: 1.125rem; }
+
+.faq__boton {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  width: 100%;
+  min-height: 3.25rem;
+  padding: 0.75rem 1.25rem;
+  background: transparent;
+  border: 0;
+  border-radius: var(--radio);
+  font: inherit;
+  font-family: var(--fuente-titulos);
+  font-weight: 600;
+  text-align: left;
+  color: var(--color-secundario);
+  cursor: pointer;
+}
+.faq__icono {
+  flex: none;
+  width: 1.5rem;
+  height: 1.5rem;
+  fill: none;
+  stroke: var(--color-acento);   /* acento sobre blanco: 5.7:1 */
+  stroke-width: 2.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.faq__boton[aria-expanded="true"] .faq__icono { transform: rotate(180deg); }
+
+.faq__panel-interior p { margin: 0; padding: 0 1.25rem 1.25rem; }
+
+/* Solo con JS: el panel arranca colapsado.
+   Truco de animación: grid-template-rows pasa de 0fr a 1fr (la altura se anima sin conocerla).
+   "visibility" oculta el contenido colapsado a teclado y lectores de pantalla. */
+.js .faq__panel {
+  display: grid;
+  grid-template-rows: 0fr;
+  visibility: hidden;
+  transition: grid-template-rows 0.3s ease, visibility 0.3s;
+}
+.js .faq__panel.esta-abierto { grid-template-rows: 1fr; visibility: visible; }
+.js .faq__panel-interior { overflow: hidden; min-height: 0; }
+.faq__icono { transition: transform 0.3s ease; }
+
+/* Sin animaciones si la persona lo pidió */
+@media (prefers-reduced-motion: reduce) {
+  .js .faq__panel, .faq__icono { transition: none; }
+}
+
+/* ---------- 7. Pie de página ---------- */
+.pie { background: var(--color-secundario); color: var(--color-blanco); padding-block: 2rem; }
+.pie p { margin-bottom: 0.5rem; }
+.pie a { color: var(--color-blanco); }
+.pie__marca { font-family: var(--fuente-titulos); font-size: 1.5rem; font-weight: 700; }
+
+/* ---------- Pantallas grandes (mobile-first: se agrega, no se quita) ---------- */
+@media (min-width: 48rem) {      /* 768 px */
+  .seccion { padding-block: 5rem; }
+  .hero { padding-block: 5rem; }
+  .hero__interior { grid-template-columns: 1.2fr 1fr; }
+  .historia { grid-template-columns: 1.2fr 1fr; }
+  .visita { grid-template-columns: 1fr 1fr; }
+  .nav { gap: 0 1.5rem; }
+}
